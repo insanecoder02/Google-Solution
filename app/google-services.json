@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "883331639225",
+    "project_id": "azureon-54143",
+    "storage_bucket": "azureon-54143.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883331639225:android:250c65ae7f301dd5963868",
+        "android_client_info": {
+          "package_name": "com.example.google_solution"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa5jVFDAoNswJjbRiDMvwIK9yDRyg34Ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883331639225:android:250cac8c641f8de6963868",
+        "android_client_info": {
+          "package_name": "com.example.google_solution_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa5jVFDAoNswJjbRiDMvwIK9yDRyg34Ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
