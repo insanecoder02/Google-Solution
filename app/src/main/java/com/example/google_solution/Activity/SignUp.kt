@@ -1,11 +1,12 @@
-package com.example.google_solution
+package com.example.google_solution.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.google_solution.R
 
-class GetStarted : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_get_started)
+        setContentView(R.layout.activity_sign_up)
     }
 }
