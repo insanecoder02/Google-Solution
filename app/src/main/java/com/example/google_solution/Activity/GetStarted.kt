@@ -12,11 +12,12 @@ class GetStarted : AppCompatActivity() {
     private lateinit var binding:  ActivityGetStartedBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityGetStartedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("first"))
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("second"))
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("third"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(""))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(""))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(""))
 
         binding.viewPager.adapter = FragmentAdapter(supportFragmentManager,lifecycle)
 
