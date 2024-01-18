@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GoogleSolution"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.Home"
+            android:name=".Activity.BaseActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SignUp"

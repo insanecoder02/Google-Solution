@@ -3,6 +3,7 @@ package com.example.google_solution.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.google_solution.activity.BaseActivity
 import com.example.google_solution.databinding.ActivityAuthBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -21,15 +22,13 @@ class Auth : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             // User is already signed in, skip the sign-in part
-            startActivity(Intent(this, Home::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
             finish()
         }
-
         binding.inBut.setOnClickListener {
             startActivity(Intent(this, SignIn::class.java))
             finish()
         }
-
         binding.upBut.setOnClickListener {
             startActivity(Intent(this, SignUp::class.java))
             finish()
