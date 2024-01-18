@@ -26,7 +26,7 @@ class BaseActivity : AppCompatActivity() {
 //        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 //        window.statusBarColor = resources.getColor(R.color.#2DCC70)
 
-        val navView: BottomNavigationView = binding.navView
+//        val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_base)
 //        val appBarConfiguration = AppBarConfiguration(
@@ -34,6 +34,6 @@ class BaseActivity : AppCompatActivity() {
 //                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
 //            )
 //        )
-        navView.setupWithNavController(navController)
+//        navView.setupWithNavController(navController)
     }
 }
