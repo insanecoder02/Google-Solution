@@ -21,29 +21,52 @@ class GetStarted : AppCompatActivity() {
         binding = ActivityGetStartedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragmentList = arrayListOf<Fragment>(
-            Intro1(),
-            Intro2(),
-            Intro3()
-        )
+        window.statusBarColor = 0xFF2DCC70.toInt()
 
-        val adapter = ViewPagerAdapter(
-            fragmentList,
-            supportFragmentManager,
-            lifecycle
-        )
+        if (isFirstTimeLaunch()) {
+            val fragmentList = arrayListOf<Fragment>(
+                Intro1(),
+                Intro2(),
+                Intro3()
+            )
 
-        binding.viewPager.adapter = adapter
+            val adapter = ViewPagerAdapter(
+                fragmentList,
+                supportFragmentManager,
+                lifecycle
+            )
 
-        val indicator = findViewById<DotsIndicator>(R.id.dots_indicator)
-        indicator.attachTo(binding.viewPager)
+            binding.viewPager.adapter = adapter
 
-        binding.next.setOnClickListener {
-            if (binding.viewPager.currentItem == 2) {
-//                startActivity(Intent(this@GetStarted, Auth::class.java))
+            val indicator = findViewById<DotsIndicator>(R.id.dots_indicator)
+            indicator.attachTo(binding.viewPager)
+
+            binding.next.setOnClickListener {
+                if (binding.viewPager.currentItem == 2) {
+                    // Mark that the app has been launched once
+                    markFirstTimeLaunch()
+                    startActivity(Intent(this@GetStarted, Auth::class.java))
+                    finish() // Close the current activity after launching Auth activity
+                }
+                binding.viewPager.currentItem = binding.viewPager.currentItem + 1
             }
-            binding.viewPager.currentItem = binding.viewPager.currentItem + 1
+        } else {
+            // If not the first time launch, directly start Auth activity
+            startActivity(Intent(this@GetStarted, Auth::class.java))
+            finish() // Close the current activity after launching Auth activity
         }
+    }
+
+    private fun isFirstTimeLaunch(): Boolean {
+        val sharedPreferences = getPreferences(MODE_PRIVATE)
+        return sharedPreferences.getBoolean("firstTimeLaunch", true)
+    }
+
+    private fun markFirstTimeLaunch() {
+        val sharedPreferences = getPreferences(MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("firstTimeLaunch", false)
+        editor.apply()
     }
 
     class ViewPagerAdapter(

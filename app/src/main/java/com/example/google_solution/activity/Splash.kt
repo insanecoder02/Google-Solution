@@ -11,8 +11,10 @@ class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        window.statusBarColor = 0xFF2DCC70.toInt()
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, BaseActivity::class.java))
+            startActivity(Intent(this, GetStarted::class.java))
         },3000)
+        finish()
     }
 }

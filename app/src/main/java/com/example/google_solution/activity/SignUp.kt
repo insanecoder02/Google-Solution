@@ -31,6 +31,12 @@ class SignUp : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.root.setOnTouchListener { _, _ ->
+            hideKeyboard()
+            false
+        }
+
+        window.statusBarColor = 0xFF2DCC70.toInt()
         auth = Firebase.auth
 
         binding.signIn.setOnClickListener {

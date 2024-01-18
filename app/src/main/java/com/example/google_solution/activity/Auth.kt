@@ -14,21 +14,19 @@ class Auth : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = 0xFF2DCC70.toInt()
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser != null) {
             // User is already signed in, skip the sign-in part
             startActivity(Intent(this, BaseActivity::class.java))
-            finish()
         }
         binding.inBut.setOnClickListener {
             startActivity(Intent(this, SignIn::class.java))
-            finish()
         }
         binding.upBut.setOnClickListener {
             startActivity(Intent(this, SignUp::class.java))
-            finish()
         }
     }
 }

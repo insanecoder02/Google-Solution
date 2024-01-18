@@ -1,6 +1,7 @@
 package com.example.google_solution.activity
 
 import android.os.Bundle
+import android.view.WindowManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -19,6 +20,11 @@ class BaseActivity : AppCompatActivity() {
 
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.statusBarColor = 0xFF2DCC70.toInt()
+
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//        window.statusBarColor = resources.getColor(R.color.#2DCC70)
 
         val navView: BottomNavigationView = binding.navView
 
