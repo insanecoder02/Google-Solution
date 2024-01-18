@@ -1,4 +1,4 @@
-package com.example.google_solution.Activity
+package com.example.google_solution.activity
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.google_solution.R
-import com.example.google_solution.activity.BaseActivity
-import com.example.google_solution.databinding.ActivitySignUpBinding
+import com.example.google_solution.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -18,8 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 
-class SignUp : AppCompatActivity() {
-    private lateinit var binding: ActivitySignUpBinding
+class SignIn : AppCompatActivity() {
+    private lateinit var binding: ActivitySignInBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -29,22 +28,22 @@ class SignUp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = Firebase.auth
 
-        binding.signIn.setOnClickListener {
-            startActivity(Intent(this, SignIn::class.java))
+        binding.signUp.setOnClickListener {
+            startActivity(Intent(this, SignUp::class.java))
             finish()
         }
 
-        binding.upBut.setOnClickListener {
+        binding.inBut.setOnClickListener {
             val email = binding.email.text.toString()
             val password = binding.pass.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                createAccountWithEmailAndPassword(email, password)
+                signInWithEmailAndPassword(email, password)
                 hideKeyboard()
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
@@ -59,18 +58,16 @@ class SignUp : AppCompatActivity() {
         }
     }
 
-    private fun createAccountWithEmailAndPassword(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
+    private fun signInWithEmailAndPassword(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign up success
-                    Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
+                    // Sign in success
                     startActivity(Intent(this, BaseActivity::class.java))
                     finish()
                 } else {
-                    // If sign up fails, display a message to the user.
-                    Toast.makeText(baseContext, task.exception!!.localizedMessage,
-                        Toast.LENGTH_SHORT).show()
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(baseContext, task.exception!!.localizedMessage, Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -103,7 +100,7 @@ class SignUp : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-                Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Google Sign In failed. ${e.statusCode}", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -114,12 +111,11 @@ class SignUp : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success
-                    Toast.makeText(this, "Google Sign In successful", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, BaseActivity::class.java))
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(this, task.exception!!.localizedMessage,
+                    Toast.makeText(this, "Google Sign In failed. ${task.exception?.localizedMessage}",
                         Toast.LENGTH_SHORT).show()
                 }
             }

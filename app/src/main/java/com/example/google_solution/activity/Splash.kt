@@ -1,4 +1,4 @@
-package com.example.google_solution.Activity
+package com.example.google_solution.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, Auth::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
         },3000)
     }
 }

@@ -13,22 +13,22 @@
         android:theme="@style/Theme.GoogleSolution"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.BaseActivity"
+            android:name=".activity.BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.SignUp"
+            android:name=".activity.SignUp"
             android:exported="false" />
         <activity
-            android:name=".Activity.SignIn"
+            android:name=".activity.SignIn"
             android:exported="false" />
         <activity
-            android:name=".Activity.Auth"
+            android:name=".activity.Auth"
             android:exported="false" />
         <activity
-            android:name=".Activity.GetStarted"
+            android:name=".activity.GetStarted"
             android:exported="false" />
         <activity
-            android:name=".Activity.Splash"
+            android:name=".activity.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

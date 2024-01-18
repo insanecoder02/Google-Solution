@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#2DCC70"
     android:outlineProvider="paddedBounds"
-    tools:context=".Activity.Auth">
+    tools:context=".activity.Auth">
 
     <ImageView
         android:id="@+id/imageView"
