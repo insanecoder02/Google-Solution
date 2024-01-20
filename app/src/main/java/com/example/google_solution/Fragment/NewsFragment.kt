@@ -67,11 +67,19 @@ class NewsFragment : Fragment() {
                     articles = response.body()?.articles?.toMutableList() ?: mutableListOf()
                     // Update the adapter with the new data
                     newsAdapter.updateData(articles)
+
+                    binding.lottieAnimationView.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
+                    binding.newsRv.visibility = View.VISIBLE
                 }
             }
 
             override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), t.localizedMessage, Toast.LENGTH_SHORT).show()
+
+                binding.lottieAnimationView.visibility = View.GONE
+                binding.progressBar.visibility = View.VISIBLE
+                binding.newsRv.visibility = View.GONE
             }
         })
     }
