@@ -23,21 +23,17 @@ class BaseActivity : AppCompatActivity() {
 
         window.statusBarColor = 0xFF2DCC70.toInt()
 
-        val navView: BottomNavigationView = binding.navView
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//        window.statusBarColor = resources.getColor(R.color.#2DCC70)
+
+       val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_base)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+            )
+        )
         navView.setupWithNavController(navController)
-
-
-        binding.button.setOnClickListener {
-            // Handle FAB button click
-            navigateToTakePictureFragment()
-        }
-    }
-
-    private fun navigateToTakePictureFragment() {
-        val navController = findNavController(R.id.nav_host_fragment_activity_base)
-        // Assuming you have a navigation graph with an action to navigate to the picture fragment
-        navController.navigate(R.id.button)
     }
 }
