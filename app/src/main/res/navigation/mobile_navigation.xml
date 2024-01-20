@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.example.google_solution.Fragment.NewsFragment"
+        android:name="com.example.google_solution.Fragment.EventFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news" />
 
