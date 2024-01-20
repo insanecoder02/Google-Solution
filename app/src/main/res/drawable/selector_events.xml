@@ -1,0 +1,5 @@
+<!-- res/drawable/selector_home.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/event_selected" android:state_checked="true" />
+    <item android:drawable="@drawable/event_unselected" />
+</selector>

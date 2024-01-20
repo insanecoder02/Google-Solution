@@ -1,4 +1,4 @@
-package com.example.google_solution.activity.ui.account
+package com.example.google_solution.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

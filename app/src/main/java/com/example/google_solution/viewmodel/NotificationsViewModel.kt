@@ -1,4 +1,4 @@
-package com.example.google_solution.activity.ui.notifications
+package com.example.google_solution.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

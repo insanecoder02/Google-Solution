@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activites.MainActivity">
+    tools:context=".activity.BaseActivity">
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_base"
@@ -25,13 +25,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/bottomAppBar"
         android:layout_gravity="bottom"
-        android:background="@color/white"
-        app:fabCradleRoundedCornerRadius="42dp">
+        android:backgroundTint="@color/white"
+        app:fabCradleRoundedCornerRadius="32dp">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/navView"
             android:layout_marginEnd="20dp"
+            style="@style/AppTheme.BottomNavigationView"
             app:labelVisibilityMode="unlabeled"
             android:background="@android:color/white"
             app:menu="@menu/bottom_nav_menu">
@@ -41,10 +42,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/black"
-                android:src="@drawable/splash"
+                android:backgroundTint="#2DCC70"
+                android:src="@drawable/photo_focus_ellipse_svgrepo_com"
                 app:maxImageSize="40dp"
-                app:tint="@color/white" />
+                app:tint="@color/white"/>
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </com.google.android.material.bottomappbar.BottomAppBar>
 

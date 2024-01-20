@@ -1,4 +1,4 @@
-package com.example.google_solution.activity.ui.dashboard
+package com.example.google_solution.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.google_solution.databinding.FragmentDashboardBinding
+import com.example.google_solution.viewmodel.DashboardViewModel
 
 class DashboardFragment : Fragment() {
 
