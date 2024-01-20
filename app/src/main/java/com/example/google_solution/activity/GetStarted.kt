@@ -1,6 +1,8 @@
 package com.example.google_solution.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,6 +20,8 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class GetStarted : AppCompatActivity() {
     private lateinit var binding: ActivityGetStartedBinding
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGetStartedBinding.inflate(layoutInflater)
@@ -25,73 +29,69 @@ class GetStarted : AppCompatActivity() {
 
         actionBar?.hide()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-
         window.statusBarColor = 0xFF2DCC70.toInt()
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
         if (isFirstTimeLaunch()) {
-            val fragmentList = arrayListOf<Fragment>(
-                Intro1(),
-                Intro2(),
-                Intro3()
-            )
-
-            val adapter = ViewPagerAdapter(
-                fragmentList,
-                supportFragmentManager,
-                lifecycle
-            )
-
-            binding.viewPager.adapter = adapter
-
-            val indicator = findViewById<DotsIndicator>(R.id.dots_indicator)
-            indicator.attachTo(binding.viewPager)
-
-//            if(binding.viewPager.currentItem >0){
-//                binding.lay1.visibility = View.VISIBLE
-//                binding.nextBut1.visibility = View.GONE
-//            }
-//            else{
-//                binding.lay1.visibility = View.GONE
-//                binding.nextBut1.visibility = View.VISIBLE
-//            }
-
-            val lastPageIndex = fragmentList.size - 1
-            binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-
-                    if (position == lastPageIndex) {
-                        binding.next.text = "Let's Get Started"
-                    } else {
-                        binding.next.text = "Next"
-                    }
-                }
-            })
-
-            binding.next.setOnClickListener {
-                if (binding.viewPager.currentItem == 2) {
-//                    markFirstTimeLaunch()
-                    startActivity(Intent(this@GetStarted, Auth::class.java))
-                    finish()
-                }
-                binding.viewPager.currentItem = binding.viewPager.currentItem + 1
-            }
+            setupIntroViewPager()
         } else {
-            // If not the first time launch, directly start Auth activity
-            startActivity(Intent(this@GetStarted, Auth::class.java))
-            finish() // Close the current activity after launching Auth activity
+            startNextActivity()
         }
     }
 
+    private fun setupIntroViewPager() {
+        val fragmentList = arrayListOf<Fragment>(
+            Intro1(),
+            Intro2(),
+            Intro3()
+        )
+
+        val adapter = ViewPagerAdapter(
+            fragmentList,
+            supportFragmentManager,
+            lifecycle
+        )
+
+        binding.viewPager.adapter = adapter
+
+        val indicator = findViewById<DotsIndicator>(R.id.dots_indicator)
+        indicator.attachTo(binding.viewPager)
+
+        val lastPageIndex = fragmentList.size - 1
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                if (position == lastPageIndex) {
+                    binding.next.text = "Let's Get Started"
+                } else {
+                    binding.next.text = "Next"
+                }
+            }
+        })
+
+        binding.next.setOnClickListener {
+            if (binding.viewPager.currentItem == lastPageIndex) {
+                markFirstTimeLaunch()
+                startNextActivity()
+            }
+            binding.viewPager.currentItem = binding.viewPager.currentItem + 1
+        }
+    }
+
+    private fun startNextActivity() {
+        startActivity(Intent(this@GetStarted, Auth::class.java))
+        finish()
+    }
+
     private fun isFirstTimeLaunch(): Boolean {
-        val sharedPreferences = getPreferences(MODE_PRIVATE)
-        return sharedPreferences.getBoolean("firstTimeLaunch", true)
+        return sharedPreferences.getBoolean("isFirstTimeLaunch", true)
     }
 
     private fun markFirstTimeLaunch() {
-        val sharedPreferences = getPreferences(MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putBoolean("firstTimeLaunch", false)
+        editor.putBoolean("isFirstTimeLaunch", false)
         editor.apply()
     }
 

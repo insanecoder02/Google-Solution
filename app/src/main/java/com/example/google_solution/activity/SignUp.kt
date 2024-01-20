@@ -3,6 +3,7 @@ package com.example.google_solution.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -60,10 +61,25 @@ class SignUp : AppCompatActivity() {
         configureGoogleSignIn()
 
         binding.gogBut.setOnClickListener {
-            signInWithGoogle()
+            showLottieAnimation(true)
+            startGoogleSignIn()
         }
     }
 
+    private fun showLottieAnimation(show: Boolean) {
+        if (show) {
+            binding.logLot.visibility = View.VISIBLE
+            binding.logLot.playAnimation()
+        } else {
+            binding.logLot.visibility = View.GONE
+            binding.logLot.pauseAnimation()
+        }
+    }
+
+    private fun startGoogleSignIn() {
+        showLottieAnimation(true)
+        signInWithGoogle()
+    }
     private fun createAccountWithEmailAndPassword(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -103,6 +119,7 @@ class SignUp : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
+            showLottieAnimation(false)
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)!!

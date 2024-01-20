@@ -4,6 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">AIzaSyDa5jVFDAoNswJjbRiDMvwIK9yDRyg34Ws</string>
     <string name="title_home">home\n</string>
-    <string name="title_dashboard">dashborad\n</string>
+    <string name="title_news">news\n</string>
     <string name="title_notifications">notifications\n</string>
 </resources>
