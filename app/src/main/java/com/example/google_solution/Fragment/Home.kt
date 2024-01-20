@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -21,7 +20,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HomeFragment : Fragment() {
+class Home : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var newsAdapter: NewsAdapter
@@ -44,6 +43,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.showText.setOnClickListener {
+//            findNavController().navigate(R.id.action_HomeFragment_to_EventFragment)
+        }
 
         binding.newsRv.layoutManager = LinearLayoutManager(requireContext())
         newsAdapter = NewsAdapter(requireContext(), articles)

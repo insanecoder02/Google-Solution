@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.google_solution.databinding.FragmentNewsBinding
+import com.example.google_solution.databinding.FragmentEventBinding
 import com.example.google_solution.viewmodel.DashboardViewModel
-import retrofit2.converter.gson.GsonConverterFactory
+class Event : Fragment() {
 
-class EventFragment : Fragment() {
-
-    private var _binding: FragmentNewsBinding? = null
+    private var _binding: FragmentEventBinding? = null
 
     private val binding get() = _binding!!
 
@@ -24,7 +22,7 @@ class EventFragment : Fragment() {
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-        _binding = FragmentNewsBinding.inflate(inflater, container, false)
+        _binding = FragmentEventBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
