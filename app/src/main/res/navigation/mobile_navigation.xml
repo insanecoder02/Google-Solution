@@ -26,14 +26,8 @@
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.google_solution.Fragment.Account"
+        android:name="com.example.google_solution.Fragment.AiBot"
         android:label="account"
-        tools:layout="@layout/fragment_account"/>
-
-    <fragment
-        android:id="@+id/button"
-        android:name="com.example.google_solution.Fragment.camera"
-        android:label="camera"
-        tools:layout="@layout/fragment_camera"/>
+        tools:layout="@layout/fragment_ai_bot"/>
 
 </navigation>
