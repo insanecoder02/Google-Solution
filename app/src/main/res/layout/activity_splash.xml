@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins"
-        android:text="Azureon"
+        android:text="GreenZ"
         android:textColor="#2DCC70"
         android:textSize="40sp"
         android:textStyle="bold"
