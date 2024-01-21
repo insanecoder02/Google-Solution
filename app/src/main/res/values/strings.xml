@@ -5,7 +5,7 @@
     <string name="default_web_client_id">AIzaSyDa5jVFDAoNswJjbRiDMvwIK9yDRyg34Ws</string>
     <string name="title_home">home\n</string>
     <string name="title_event">event\n</string>
-    <string name="title_notifications">notifications\n</string>
+    <string name="title_shop">shop\n</string>
     <string name="write_your_message">Write your message</string>
     <string name="sends_message">sends message</string>
 </resources>

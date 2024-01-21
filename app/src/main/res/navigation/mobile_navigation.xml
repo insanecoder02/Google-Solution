@@ -26,9 +26,9 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.google_solution.Fragment.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.example.google_solution.Fragment.Shop"
+        android:label="@string/title_shop"
+        tools:layout="@layout/fragment_shop" />
 
     <fragment
         android:id="@+id/navigation_account"
