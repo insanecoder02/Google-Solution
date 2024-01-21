@@ -47,8 +47,14 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.showText.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_EventFragment)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_event)
         }
+
+        binding.ishantFabButtonx.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_fabButt)
+        }
+
+
 
         binding.newsRv.layoutManager = LinearLayoutManager(requireContext())
         newsAdapter = NewsAdapter(requireContext(), articles)

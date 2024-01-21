@@ -4,15 +4,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.WindowManager
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.google_solution.Fragment.AiBot
 import com.example.google_solution.R
@@ -41,7 +37,7 @@ class BaseActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        binding.fabButton.setOnClickListener {
+        binding.fabButt.setOnClickListener {
             showOptionDialog()
             navigateToTakePictureFragment()
         }
@@ -49,7 +45,7 @@ class BaseActivity : AppCompatActivity() {
 
     private fun navigateToTakePictureFragment() {
         val navController = findNavController(R.id.nav_host_fragment_activity_base)
-        navController.navigate(R.id.fabButton)
+        navController.navigate(R.id.fabButt)
     }
 
     private fun showOptionDialog() {

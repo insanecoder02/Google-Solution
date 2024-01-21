@@ -10,6 +10,12 @@
         android:name="com.example.google_solution.Fragment.Home"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_fabButt"
+            app:destination="@id/fabButt" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_event"
+            app:destination="@id/navigation_event" />
     </fragment>
 
     <fragment
@@ -31,7 +37,7 @@
         tools:layout="@layout/fragment_account"/>
 
     <fragment
-        android:id="@+id/fabButton"
+        android:id="@+id/fabButt"
         android:name="com.example.google_solution.Fragment.AiBot"
         android:label="account"
         tools:layout="@layout/fragment_ai_bot"/>
