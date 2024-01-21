@@ -26,7 +26,7 @@ class BaseActivity : AppCompatActivity() {
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.statusBarColor = 0xFF2DCC70.toInt()
+        window.statusBarColor = 0xFF000000.toInt()
 
 //        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 //        window.statusBarColor = resources.getColor(R.color.#2DCC70)

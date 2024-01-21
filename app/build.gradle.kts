@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 
 }
 
@@ -56,6 +57,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation("com.google.ai.client.generativeai:generativeai:0.1.2")
     implementation("androidx.navigation:navigation-fragment:2.7.6")
+    implementation("com.google.firebase:firebase-crashlytics:18.6.1")
+    implementation("com.google.firebase:firebase-messaging:23.4.0")
     testImplementation("junit:junit:4.13.2")
     implementation("com.tbuonomo:dotsindicator:5.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

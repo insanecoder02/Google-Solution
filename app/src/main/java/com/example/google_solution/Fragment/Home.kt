@@ -15,7 +15,7 @@ import com.example.google_solution.viewmodel.HomeViewModel
 import com.example.google_solution.databinding.FragmentHomeBinding
 import com.example.google_solution.dataclass.Article
 import com.example.google_solution.dataclass.NewsResponse
-import com.example.google_solution.other.NewsAPI
+import com.example.google_solution.utils.NewsAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -70,7 +70,7 @@ class Home : Fragment() {
         call.enqueue(object : Callback<NewsResponse> {
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                 if (response.isSuccessful) {
-                    articles = response.body()?.articles?.toMutableList() ?: mutableListOf()
+                    articles = response.body()?.articles?.take(10)?.toMutableList() ?: mutableListOf()
                     // Update the adapter with the new data
                     newsAdapter.updateData(articles)
                     binding.lottieAnimationView.visibility = View.GONE

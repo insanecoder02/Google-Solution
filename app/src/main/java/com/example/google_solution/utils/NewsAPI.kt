@@ -1,4 +1,4 @@
-package com.example.google_solution.other
+package com.example.google_solution.utils
 
 import com.example.google_solution.dataclass.NewsResponse
 import retrofit2.http.GET
