@@ -18,6 +18,9 @@
             android:name=".activity.BaseActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.GetStarted"
+            android:exported="false" />
+        <activity
             android:name=".activity.SignUp"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
             android:name=".activity.Auth"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

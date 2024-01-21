@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.google_solution.R
 import com.example.google_solution.adapter.NewsAdapter
 import com.example.google_solution.viewmodel.HomeViewModel
 import com.example.google_solution.databinding.FragmentHomeBinding
@@ -45,7 +47,7 @@ class Home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.showText.setOnClickListener {
-//            findNavController().navigate(R.id.action_HomeFragment_to_EventFragment)
+            findNavController().navigate(R.id.action_HomeFragment_to_EventFragment)
         }
 
         binding.newsRv.layoutManager = LinearLayoutManager(requireContext())

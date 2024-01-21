@@ -1,5 +1,6 @@
 package com.example.google_solution.Fragment
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -36,6 +37,16 @@ class AiBot : Fragment() {
     ): View {
         _binding = FragmentAiBotBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+
+    fun receiveImage(imageData: Any?) {
+        if (imageData is Uri) {
+            Toast.makeText(requireContext(), "Received Image: ${imageData.toString()}", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(requireContext(),"no image is reccived",Toast.LENGTH_SHORT).show()
+        }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
